@@ -1,0 +1,6 @@
+name: 'OilMod-Test2'
+version: 0.0.1
+description: 'OilMod Api Test'
+author: sirati97
+main: org.oilmod.test.plugin2.TestPlugin2
+load: STARTUP
