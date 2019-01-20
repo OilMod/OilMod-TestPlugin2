@@ -19,6 +19,11 @@ public class FastShovel extends OilItem implements IShovel, IDurable {
     }
 
     @Override
+    public int getItemEnchantability() {
+        return 10;
+    }
+
+    @Override
     public int getMaxDurability() {
         return 10;
     }

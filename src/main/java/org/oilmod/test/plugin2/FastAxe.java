@@ -19,6 +19,11 @@ public class FastAxe extends OilItem implements IAxe, IDurable {
     }
 
     @Override
+    public int getItemEnchantability() {
+        return 100;
+    }
+
+    @Override
     public int getMaxDurability() {
         return 100;
     }

@@ -1,8 +1,14 @@
 package org.oilmod.test.plugin2;
 
+import org.bukkit.Material;
 import org.oilmod.api.OilMod;
 import org.oilmod.api.items.ItemRegistry;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.oilmod.api.items.crafting.InterchangeableCraftingIngredient;
+import org.oilmod.api.items.crafting.ItemCraftingFactory;
+import org.oilmod.api.items.crafting.OilCraftingRecipe;
+import org.oilmod.api.items.crafting.OilItemCraftingResult;
+import org.oilmod.api.items.crafting.VanillaOilCraftingResult;
 
 import java.util.Random;
 
@@ -24,6 +30,10 @@ public class TestPlugin2 extends JavaPlugin {
         itemRegistry.register(new FastShovel(mod.createKey("fast_shovel")));
         itemRegistry.register(new FastAxe(mod.createKey("fast_axe")));
         itemRegistry.register(new BackpackItem(mod.createKey("backpack")));
+
+        OilCraftingRecipe recipe;
+        recipe = ItemCraftingFactory.createShapedRecipe(mod.createKey("tester"), 1,2, new VanillaOilCraftingResult(Material.ARROW), new InterchangeableCraftingIngredient(Material.COBBLESTONE, Material.STONE), Material.WOOD);
+        ItemCraftingFactory.registerGlobal(recipe);
     }
 
     public static TestPlugin2 getInstance() {
