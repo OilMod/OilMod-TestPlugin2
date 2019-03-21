@@ -9,6 +9,8 @@ import org.oilmod.api.items.crafting.ItemCraftingFactory;
 import org.oilmod.api.items.crafting.OilCraftingRecipe;
 import org.oilmod.api.items.crafting.OilItemCraftingResult;
 import org.oilmod.api.items.crafting.VanillaOilCraftingResult;
+import org.oilmod.api.rep.providers.minecraft.MinecraftBlock;
+import org.oilmod.api.rep.providers.minecraft.MinecraftItem;
 
 import java.util.Random;
 
@@ -32,7 +34,7 @@ public class TestPlugin2 extends JavaPlugin {
         itemRegistry.register(new BackpackItem(mod.createKey("backpack")));
 
         OilCraftingRecipe recipe;
-        recipe = ItemCraftingFactory.createShapedRecipe(mod.createKey("tester"), 1,2, new VanillaOilCraftingResult(Material.ARROW), new InterchangeableCraftingIngredient(Material.COBBLESTONE, Material.STONE), Material.WOOD);
+        recipe = ItemCraftingFactory.createShapedRecipe(mod.createKey("tester"), 1,2, new VanillaOilCraftingResult(MinecraftItem.ARROW.get().getItem()), new InterchangeableCraftingIngredient(MinecraftBlock.COBBLESTONE.get().getBlock().getItem(), MinecraftBlock.STONE.get().getBlock().getItem()), MinecraftBlock.OAK_PLANKS.get().getBlock().getItem());
         ItemCraftingFactory.registerGlobal(recipe);
     }
 

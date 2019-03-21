@@ -7,11 +7,12 @@ import org.oilmod.api.items.type.IAxe;
 import org.oilmod.api.items.type.IDurable;
 import org.oilmod.api.items.type.IPickaxe;
 import org.oilmod.api.items.type.TBBType;
+import org.oilmod.api.rep.providers.minecraft.MinecraftItem;
 import org.oilmod.api.util.OilKey;
 
 public class FastPickaxe extends OilItem implements IPickaxe, IDurable {
     public FastPickaxe(OilKey key) {
-        super(key, Material.DIAMOND_PICKAXE, "I am so fast it hurts");
+        super(key, MinecraftItem.DIAMOND_PICKAXE.get().getItem(), "I am so fast it hurts");
     }
 
     @Override

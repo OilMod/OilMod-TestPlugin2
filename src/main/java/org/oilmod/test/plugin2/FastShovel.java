@@ -6,11 +6,12 @@ import org.oilmod.api.items.OilItemStack;
 import org.oilmod.api.items.type.IDurable;
 import org.oilmod.api.items.type.IPickaxe;
 import org.oilmod.api.items.type.IShovel;
+import org.oilmod.api.rep.providers.minecraft.MinecraftItem;
 import org.oilmod.api.util.OilKey;
 
 public class FastShovel extends OilItem implements IShovel, IDurable {
     public FastShovel(OilKey key) {
-        super(key, Material.DIAMOND_SPADE, "I am so fast it hurts");
+        super(key, MinecraftItem.DIAMOND_SHOVEL.get().getItem(), "I am so fast it hurts");
     }
 
     @Override
