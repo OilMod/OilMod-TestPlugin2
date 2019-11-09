@@ -32,6 +32,7 @@ public class TestPlugin2 extends JavaPlugin {
         itemRegistry.register(new FastShovel(mod.createKey("fast_shovel")));
         itemRegistry.register(new FastAxe(mod.createKey("fast_axe")));
         itemRegistry.register(new BackpackItem(mod.createKey("backpack")));
+        itemRegistry.register(new StickFlintItem(mod.createKey("stick_flint")));
 
         OilCraftingRecipe recipe;
         recipe = ItemCraftingFactory.createShapedRecipe(mod.createKey("tester"), 1,2, new VanillaOilCraftingResult(MinecraftItem.ARROW.get().getItem()), new InterchangeableCraftingIngredient(MinecraftBlock.COBBLESTONE.get().getBlock().getItem(), MinecraftBlock.STONE.get().getBlock().getItem()), MinecraftBlock.OAK_PLANKS.get().getBlock().getItem());

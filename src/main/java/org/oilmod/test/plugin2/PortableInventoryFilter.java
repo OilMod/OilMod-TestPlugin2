@@ -1,6 +1,5 @@
 package org.oilmod.test.plugin2;
 
-import org.bukkit.inventory.ItemStack;
 import org.oilmod.api.inventory.ItemFilter;
 import org.oilmod.api.items.OilBukkitItemStack;
 import org.oilmod.api.items.OilItemStack;

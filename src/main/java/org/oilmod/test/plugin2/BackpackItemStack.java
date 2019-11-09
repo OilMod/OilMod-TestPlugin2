@@ -1,6 +1,5 @@
 package org.oilmod.test.plugin2;
 
-import org.bukkit.entity.Player;
 import org.oilmod.api.inventory.InventoryFactory;
 import org.oilmod.api.inventory.ModInventoryObject;
 import org.oilmod.api.items.NMSItemStack;
