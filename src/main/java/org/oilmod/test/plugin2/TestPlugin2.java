@@ -1,6 +1,7 @@
 package org.oilmod.test.plugin2;
 
 import org.oilmod.api.OilMod;
+import org.oilmod.api.inventory.ItemFilterRegistry;
 import org.oilmod.api.items.ItemRegistry;
 import org.oilmod.api.items.crafting.InterchangeableCraftingIngredient;
 import org.oilmod.api.items.crafting.ItemCraftingFactory;
@@ -23,16 +24,19 @@ public class TestPlugin2 extends OilMod {
         instance = this;
     }
 
-
+    @Override
+    public void onRegisterItemFilter(ItemFilterRegistry registry) {
+        registry.register("portable_inventory_filter", PortableInventoryFilter.INSTANCE);
+    }
 
     @Override
     public void onRegisterItems(ItemRegistry itemRegistry) {
         System.out.println(itemRegistry);
-        itemRegistry.register(new FastPickaxe(createKey("fast_pickaxe")));
-        itemRegistry.register(new FastShovel(createKey("fast_shovel")));
-        itemRegistry.register(new FastAxe(createKey("fast_axe")));
-        itemRegistry.register(new BackpackItem(createKey("backpack")));
-        itemRegistry.register(new StickFlintItem(createKey("stick_flint")));
+        itemRegistry.register("fast_pickaxe", new FastPickaxe());
+        itemRegistry.register("fast_shovel", new FastShovel());
+        itemRegistry.register("fast_axe", new FastAxe());
+        itemRegistry.register("backpack", new BackpackItem());
+        itemRegistry.register("stick_flint", new StickFlintItem());
     }
 
     @Override

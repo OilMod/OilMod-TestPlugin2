@@ -8,6 +8,8 @@ import org.oilmod.api.rep.itemstack.ItemStackRep;
 public class PortableInventoryFilter implements ItemFilter {
     public final static PortableInventoryFilter INSTANCE = new PortableInventoryFilter();
 
+    private PortableInventoryFilter() {    }
+
     @Override
     public boolean allowed(ItemStackRep itemStack) {
         if (itemStack instanceof OilBukkitItemStack) {

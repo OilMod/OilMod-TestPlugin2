@@ -14,8 +14,8 @@ import org.oilmod.api.util.OilKey;
 
 
 public class BackpackItem extends OilItem implements IUnique {
-    public BackpackItem(OilKey key) {
-        super(key, MinecraftItem.LEATHER, "Backpack"); //defines Backpack item
+    public BackpackItem() {
+        super(MinecraftItem.LEATHER, "Backpack"); //defines Backpack item
         //Material=Material.LEATHER, MaterialData=0, ItemIdentifer="Backpack", MaxStackSize=1, DisplayName="Backpack"
     }
 

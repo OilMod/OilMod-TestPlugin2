@@ -8,8 +8,8 @@ import org.oilmod.api.rep.providers.minecraft.MinecraftItem;
 import org.oilmod.api.util.OilKey;
 
 public class FastPickaxe extends OilItem implements IPickaxe, IDurable {
-    public FastPickaxe(OilKey key) {
-        super(key, MinecraftItem.DIAMOND_PICKAXE, "I am so fast it hurts");
+    public FastPickaxe() {
+        super(MinecraftItem.DIAMOND_PICKAXE, "I am so fast it hurts");
     }
 
     @Override

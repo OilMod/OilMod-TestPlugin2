@@ -8,8 +8,8 @@ import org.oilmod.api.rep.providers.minecraft.MinecraftItem;
 import org.oilmod.api.util.OilKey;
 
 public class FastAxe extends OilItem implements IAxe, IDurable {
-    public FastAxe(OilKey key) {
-        super(key, MinecraftItem.DIAMOND_SHOVEL, "I am so axe it hurts");
+    public FastAxe() {
+        super(MinecraftItem.DIAMOND_SHOVEL, "I am so axe it hurts");
     }
 
     @Override

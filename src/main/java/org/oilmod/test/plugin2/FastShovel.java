@@ -10,8 +10,8 @@ import org.oilmod.api.util.OilKey;
 import static org.oilmod.api.rep.providers.minecraft.MinecraftItem.*;
 
 public class FastShovel extends OilItem implements IShovel, IDurable {
-    public FastShovel(OilKey key) {
-        super(key, MinecraftItem.DIAMOND_SHOVEL, "I am so fast it hurts");
+    public FastShovel() {
+        super(MinecraftItem.DIAMOND_SHOVEL, "I am so fast it hurts");
     }
 
     @Override
