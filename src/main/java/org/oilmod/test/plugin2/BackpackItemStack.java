@@ -8,11 +8,19 @@ import org.oilmod.api.items.OilItemStack;
 public class BackpackItemStack extends OilItemStack {
     private ModInventoryObject inventory;
 
+    private final static InventoryFactory.Builder<ModInventoryObject> invBuilder = InventoryFactory
+            .builder("inv")
+            .chestSize(3)
+            .standardTitle("Backpack")
+            .filter(PortableInventoryFilter.INSTANCE)
+            .mainInventory()
+            .basic();
+
+
     public BackpackItemStack(NMSItemStack nmsItemStack, BackpackItem item) {
         super(nmsItemStack, item);
         //Creates inventory attached to itemstack
-        inventory = InventoryFactory.getInstance().createBasicInventory("inv", this, 27, "Backpack", PortableInventoryFilter.INSTANCE, true);
-        //nbtName="inv",oilItemStack=this,size=3*9=27,title="Backpack",ItemFilter=PortableInventoryFilter.INSTANCE,mainInventory=true
+        inventory = invBuilder.create(this);
     }
 
     @Override
