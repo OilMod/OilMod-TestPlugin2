@@ -26,20 +26,19 @@ public class TestPlugin2 extends OilMod {
 
     @Override
     public void onRegisterItemFilter(ItemFilterRegistry registry) {
-        registry.register("portable_inventory_filter", PortableInventoryFilter.INSTANCE);
+        registry.register("portable_inventory_filter", ()->PortableInventoryFilter.INSTANCE);
     }
 
     @Override
     public void onRegisterItems(ItemRegistry itemRegistry) {
         System.out.println(itemRegistry);
-        itemRegistry.register("fast_pickaxe", new FastPickaxe());
-        itemRegistry.register("fast_shovel", new FastShovel());
-        itemRegistry.register("fast_axe", new FastAxe());
-        itemRegistry.register("backpack", new BackpackItem());
-        itemRegistry.register("stick_flint", new StickFlintItem());
+        itemRegistry.register("fast_pickaxe", FastPickaxe::new);
+        itemRegistry.register("fast_shovel", FastShovel::new);
+        itemRegistry.register("fast_axe", FastAxe::new);
+        itemRegistry.register("backpack", BackpackItem::new);
+        itemRegistry.register("stick_flint", StickFlintItem::new);
     }
 
-    @Override
     public void onRegisterCraftingRecipes() {
 
         OilCraftingRecipe recipe;
