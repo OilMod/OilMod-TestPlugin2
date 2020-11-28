@@ -1,14 +1,19 @@
 package org.oilmod.test.plugin2;
 
 import org.oilmod.api.OilMod;
+import org.oilmod.api.UI.UIRegistry;
+import org.oilmod.api.blocks.BlockRegistry;
 import org.oilmod.api.inventory.ItemFilterRegistry;
 import org.oilmod.api.items.ItemRegistry;
 import org.oilmod.api.items.crafting.InterchangeableCraftingIngredient;
 import org.oilmod.api.items.crafting.ItemCraftingFactory;
 import org.oilmod.api.items.crafting.OilCraftingRecipe;
 import org.oilmod.api.items.crafting.VanillaOilCraftingResult;
+import org.oilmod.api.registry.DeferredObject;
 import org.oilmod.api.rep.providers.minecraft.MinecraftBlock;
 import org.oilmod.api.rep.providers.minecraft.MinecraftItem;
+import org.oilmod.api.stateable.complex.ComplexStateTypeRegistry;
+import org.oilmod.test.plugin2.storage.*;
 
 import java.util.Random;
 
@@ -27,6 +32,7 @@ public class TestPlugin2 extends OilMod {
     @Override
     public void onRegisterItemFilter(ItemFilterRegistry registry) {
         registry.register("portable_inventory_filter", ()->PortableInventoryFilter.INSTANCE);
+        registry.register("disk_only_filter", ()-> DiskOnlyFilter.INSTANCE);
     }
 
     @Override
@@ -37,6 +43,28 @@ public class TestPlugin2 extends OilMod {
         itemRegistry.register("fast_axe", FastAxe::new);
         itemRegistry.register("backpack", BackpackItem::new);
         itemRegistry.register("stick_flint", StickFlintItem::new);
+
+
+        itemRegistry.register("storage_disk", StorageDiskItem::new);
+    }
+
+    @Override
+    protected void onRegisterBlocks(BlockRegistry registry) {
+        registry.register("disk_drive", DiskContainerBlock::new);
+    }
+
+    public static DeferredObject<DiskContainerStateType> DiskContainerInventoryType = DeferredObject.empty();
+
+
+    @Override
+    protected void onRegisterComplexStateType(ComplexStateTypeRegistry registry) {
+        DiskContainerInventoryType = registry.register("disk_drive_complex_state", DiskContainerStateType::new);
+    }
+
+
+    @Override
+    protected void onRegisterUI(UIRegistry registry) {
+        registry.register("disk_drive_ui", ()-> DiskContainerUI.INSTANCE);
     }
 
     public void onRegisterCraftingRecipes() {
