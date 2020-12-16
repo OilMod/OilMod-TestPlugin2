@@ -1,9 +1,9 @@
 task copyMod(type: Copy) {
     doFirst {
-        println "Copying jar into ${rootProject.file('run/oilmods')}"
+        println "Copying jar into ${rootProject.file("run/oilmods")}"
     }
     from jar
-    into rootProject.file('run/oilmods')
+    into rootProject.file("run/oilmods")
 }
 
 
